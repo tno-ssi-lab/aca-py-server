@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $IMAGE_NAME:${{ github.sha }}
+      run: docker build . --file Dockerfile --tag ${{env.IMAGE_NAME}}:${{ github.sha }}
     - uses: Azure/container-scan@v0
       with:
-        image-name: $IMAGE_NAME:${{ github.sha }}
+        image-name: ${{env.IMAGE_NAME}}:${{ github.sha }}
