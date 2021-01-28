@@ -4,7 +4,7 @@ USER root
 
 # Fix vulnerable depedency
 RUN apt-get update && \
-    apt-get install libssl-dev && \
+    apt-get --only-upgrade install libssl-dev libssl1.1 && \
     rm -rf /var/lib/apt/lists
 
 USER indy
